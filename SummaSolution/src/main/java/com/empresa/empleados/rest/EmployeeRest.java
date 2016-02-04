@@ -47,7 +47,7 @@ public class EmployeeRest {
 	public ResponseEntity<List<DeveloperDto>> getDeveloperList(@PathVariable String companyId) {
 		List<DeveloperDto> developers = null;
 		try {
-			developers = service.getDeveloperList();
+			developers = service.getDeveloperList(Long.valueOf(companyId));
 		} catch (Exception e) {
 			return new ResponseEntity<List<DeveloperDto>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -86,10 +86,11 @@ public class EmployeeRest {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/{employeeId}")
-	public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable String employeeId) {
+	public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable String companyId,
+			@PathVariable String employeeId) {
 		EmployeeDto response = null;
 		try {
-			response = service.getEmployeeById(Long.valueOf(employeeId));
+			response = service.getEmployeeById(Long.valueOf(employeeId), Long.valueOf(companyId));
 		} catch (Exception e) {
 			return new ResponseEntity<EmployeeDto>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -108,10 +109,10 @@ public class EmployeeRest {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/avgage")
-	public ResponseEntity<Double> getAverageAge() {
+	public ResponseEntity<Double> getAverageAge(@PathVariable String companyId) {
 		Double response = null;
 		try {
-			response = service.getAvgAge();
+			response = service.getAvgAge(Long.valueOf(companyId));
 		} catch (Exception e) {
 			return new ResponseEntity<Double>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}

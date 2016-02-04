@@ -15,7 +15,7 @@ public class DeveloperDto extends EmployeeDto {
 		this.setFirstName(model.getFirstName());
 		this.setId(model.getId());
 		this.setLastName(model.getLastName());
-		this.setLanguage(model.getLanguage());
+		this.setLanguage(model.getLanguageName());
 		this.setCompany(new CompanyDto(model.getCompany()));
 	}
 
@@ -33,7 +33,7 @@ public class DeveloperDto extends EmployeeDto {
 		model.setFirstName(this.getFirstName());
 		model.setId(this.getId());
 		model.setLastName(this.getLastName());
-		model.setLanguage(this.getLanguage());
+		model.setLanguageName(this.getLanguage());
 		model.setCompany(this.getCompany().toModel());
 		return model;
 	}

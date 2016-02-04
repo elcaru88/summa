@@ -16,14 +16,14 @@ public interface EmployeeService {
 
 	void updateDesignerOnCompany(DesignerDto dto, Long companyId);
 
-	EmployeeDto getEmployeeById(Long employeeId);
+	EmployeeDto getEmployeeById(Long employeeId, Long companyId);
 
 	List<EmployeeDto> getEmployeeList();
 
-	List<DeveloperDto> getDeveloperList();
+	List<DeveloperDto> getDeveloperList(Long id_company);
 
 	List<DesignerDto> getDesignerList();
-	
-	Double getAvgAge();
+
+	Double getAvgAge(Long companyId);
 
 }

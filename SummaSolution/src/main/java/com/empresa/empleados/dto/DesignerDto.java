@@ -15,7 +15,7 @@ public class DesignerDto extends EmployeeDto {
 		this.setFirstName(model.getFirstName());
 		this.setId(model.getId());
 		this.setLastName(model.getLastName());
-		this.setType(model.getType());
+		this.setType(model.getTypeName());
 		this.setCompany(new CompanyDto(model.getCompany()));
 	}
 
@@ -33,7 +33,7 @@ public class DesignerDto extends EmployeeDto {
 		model.setFirstName(this.getFirstName());
 		model.setId(this.getId());
 		model.setLastName(this.getLastName());
-		model.setType(this.getType());
+		model.setTypeName(this.getType());
 		model.setCompany(this.getCompany().toModel());
 		return model;
 	}

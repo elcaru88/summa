@@ -16,8 +16,7 @@ import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@NamedQuery(name = "Employee.getAvgAge",
-query = "SELECT AVG(e.age) FROM Employee e")
+@NamedQuery(name = "Employee.getAvgAge", query = "SELECT AVG(e.age) FROM Employee e WHERE e.company.id = :companyId")
 public class Employee {
 
 	@Id

@@ -57,8 +57,8 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeDto getEmployeeById(Long employeeId) {
-		return modelToDto(employeeDao.findOne(employeeId));
+	public EmployeeDto getEmployeeById(Long employeeId, Long companyId) {
+		return modelToDto(employeeDao.findByIdAndCompanyId(employeeId, companyId));
 	}
 
 	@Override
@@ -82,8 +82,8 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public List<DeveloperDto> getDeveloperList() {
-		List<Developer> developers = developerDao.findAll();
+	public List<DeveloperDto> getDeveloperList(Long id_company) {
+		List<Developer> developers = developerDao.findByCompanyId(id_company);
 		List<DeveloperDto> developersDto = new ArrayList<DeveloperDto>();
 		for (Developer developer : developers) {
 			developersDto.add(new DeveloperDto(developer));
@@ -102,8 +102,8 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public Double getAvgAge() {
-		return employeeDao.getAvgAge();
+	public Double getAvgAge(Long companyId) {
+		return employeeDao.getAvgAge(companyId);
 	}
 
 }
