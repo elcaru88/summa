@@ -107,4 +107,15 @@ public class EmployeeRest {
 		return new ResponseEntity<List<EmployeeDto>>(response, HttpStatus.OK);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, path = "/avgage")
+	public ResponseEntity<Double> getAverageAge() {
+		Double response = null;
+		try {
+			response = service.getAvgAge();
+		} catch (Exception e) {
+			return new ResponseEntity<Double>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<Double>(response, HttpStatus.OK);
+	}
+
 }

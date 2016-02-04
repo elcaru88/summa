@@ -23,5 +23,7 @@ public interface EmployeeService {
 	List<DeveloperDto> getDeveloperList();
 
 	List<DesignerDto> getDesignerList();
+	
+	Double getAvgAge();
 
 }

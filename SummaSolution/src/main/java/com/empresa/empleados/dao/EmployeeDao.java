@@ -6,4 +6,6 @@ import com.empresa.empleados.model.Employee;
 
 public interface EmployeeDao extends JpaRepository<Employee, Long> {
 
+	Double getAvgAge();
+
 }

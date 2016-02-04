@@ -101,4 +101,9 @@ public class EmployeeServiceImp implements EmployeeService {
 		return designersDto;
 	}
 
+	@Override
+	public Double getAvgAge() {
+		return employeeDao.getAvgAge();
+	}
+
 }

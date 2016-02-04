@@ -12,8 +12,12 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.NamedQuery;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedQuery(name = "Employee.getAvgAge",
+query = "SELECT AVG(e.age) FROM Employee e")
 public class Employee {
 
 	@Id
